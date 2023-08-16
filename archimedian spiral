@@ -1,0 +1,28 @@
+import turtle
+import math
+
+def draw_archimedean_spiral(a, b, loops, angle_increment):
+    turtle.speed(40)  # Set the drawing speed (0 = fastest)
+    turtle.penup()
+    
+    for _ in range(loops * 360 // angle_increment):
+        angle = math.radians(_ * angle_increment)  # Convert degrees to radians
+        radius = a + b * angle
+        x = radius * math.cos(angle)
+        y = radius * math.sin(angle)
+        
+        turtle.goto(x, y)
+        turtle.pendown()
+
+    turtle.done()
+
+def main():
+    a = 50  # Scale factor
+    b = 0.5  # Rate of increase of the radius
+    loops = 30  # Number of loops of the spiral
+    angle_increment = 1  # Angle increment between points
+
+    draw_archimedean_spiral(a, b, loops, angle_increment)
+
+if __name__ == "__main__":
+    main()
