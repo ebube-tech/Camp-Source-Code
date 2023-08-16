@@ -1,0 +1,36 @@
+import turtle
+
+def koch_snowflake(t, order, size):
+    if order == 0:
+        t.forward(size)
+    else:
+        for angle in [60, -120, 60, 0]:
+            koch_snowflake(t, order - 1, size / 3)
+            t.left(angle)
+
+def main():
+    window = turtle.Screen()
+    window.bgcolor("lightblue")  # Set the background color to light blue
+    window.title("White-Filled Koch Snowflake")
+
+    t = turtle.Turtle()
+    t.speed(0)
+    t.penup()
+    t.goto(-150, 90)
+    t.pendown()
+
+    t.color("white")  # Set the pen color to white
+    t.begin_fill()    # Begin filling
+
+    order = 4
+    size = 300
+
+    for _ in range(3):
+        koch_snowflake(t, order, size)
+        t.right(120)
+
+    t.end_fill()  # End filling
+    window.exitonclick()
+
+if __name__ == "__main__":
+    main()
