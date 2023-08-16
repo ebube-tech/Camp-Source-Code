@@ -1,0 +1,19 @@
+import turtle
+
+screen = turtle.Screen()
+screen.title('Three Circles')
+screen.setup(1000,1000)
+turtle.hideturtle()
+turtle.speed(0)
+
+def draw_circle(x,y,radius):
+  turtle.up()
+  turtle.goto(x,y-radius)
+  turtle.seth(0)
+  turtle.down()
+  turtle.circle(radius,steps=360)
+
+r = 120
+draw_circle(0,r,r*3**0.5)
+draw_circle(-r/2*3**0.5,-r/2,r*3**0.5)
+draw_circle(r/2*3**0.5,-r/2,r*3**0.5)
